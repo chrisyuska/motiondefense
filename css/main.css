@@ -1,0 +1,20 @@
+/*
+  30em ~ 480px
+  35.5em ~ 568px
+  48em ~ 768px
+  64em ~ 1024px
+  80em ~ 1280px
+*/
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+@media screen and (min-width: 48em) { /* > small */
+
+}
