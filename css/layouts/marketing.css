@@ -1,7 +1,7 @@
 * {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /*
@@ -9,9 +9,9 @@
  * Most of these are inherited from Base, but I want to change a few.
  */
 body {
-    line-height: 1.7em;
-    color: #7f8c8d;
-    font-size: 13px;
+  line-height: 1.7em;
+  color: #7f8c8d;
+  font-size: 13px;
 }
 
 h1,
@@ -21,7 +21,7 @@ h4,
 h5,
 h6,
 label {
-    color: #34495e;
+  color: #34495e;
 }
 
 .pure-img-responsive {
@@ -151,7 +151,10 @@ a.pure-button-primary {
   margin: auto 10%;
   text-align: center;
   position: absolute;
-  top: 100px; left: 0; bottom: 0; right: 0;
+  top: 100px;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 /* This is the main heading that appears on the blue section */
@@ -199,9 +202,10 @@ a.pure-button-primary {
 .content-subhead {
     color: #1f8dd6;
 }
-    .content-subhead i {
-        margin-right: 7px;
-    }
+
+.content-subhead i {
+    margin-right: 7px;
+}
 
 /* This is the class used for the dark-background areas. */
 .ribbon {
