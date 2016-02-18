@@ -144,7 +144,8 @@ a.pure-button-primary {
  * This is the blue top section that appears on the page.
  */
 .splash-container {
-  background: url(../../img/common/home-1920x1080-90-darkest.jpg) center/cover;
+  background: #06385F;
+  background: url(../../img/common/home-1920x1080-90-darkest-compressed-80.jpg) center/cover;
   z-index: 1;
   overflow: hidden;
   /* The following styles are required for the "scroll-over" effect */
