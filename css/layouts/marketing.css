@@ -2,6 +2,8 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
 }
 
 
@@ -66,7 +68,6 @@ a:visited, a:active {
  */
 .pure-form label {
   margin: 1em 0 0;
-  font-weight: bold;
   font-size: 100%;
 }
 
@@ -120,8 +121,8 @@ a.pure-button-primary {
 
 .home-menu .pure-menu-heading {
   color: white;
-  font-weight: 400;
   font-size: 120%;
+  text-transform: none;
 }
 
 .home-menu .pure-menu-selected a {
@@ -170,7 +171,6 @@ a.pure-button-primary {
 /* This is the main heading that appears on the blue section */
 .splash-head {
   color: white;
-  font-weight: 100;
 }
 
 /* This is the subheading that appears on the blue section */
@@ -197,7 +197,6 @@ a.pure-button-primary {
 
 /* This is the class used for the main content headers (<h2>) */
 .content-head {
-  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin: 2em 0 1em;
@@ -275,6 +274,7 @@ a.pure-button-primary {
   }
 
   .splash-head {
+    font-weight: 100;
     font-size: 250%;
   }
 
