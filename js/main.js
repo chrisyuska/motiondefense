@@ -12,4 +12,8 @@ $(function() {
       }
     }
   });
+
+  // set height of splash and offset of content wrapper so mobile url bar doesn't cause resizing on scroll
+  $(".splash-container").outerHeight($(".splash-container").outerHeight());
+  $(".content-wrapper").css("top", $(".content-wrapper").offset().top);
 });
