@@ -157,6 +157,15 @@ a.pure-button-primary {
   position: fixed !important;
 }
 
+canvas#shade {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.4);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .splash {
   height: 50%;
   margin: auto 10%;
