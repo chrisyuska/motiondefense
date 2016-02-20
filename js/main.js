@@ -1,11 +1,4 @@
-var canvas = $("canvas#shade");
-var ctx = canvas.get(0).getContext("2d");
-var initialShade = 0.4;
-var shade = initialShade;
-var fps = 100;
-var interval = null;
-var step = 0.001;
-var up = false;
+var splashAnimator;
 
 $(function() {
   // init smooth scrolling of inner-page links
@@ -27,28 +20,112 @@ $(function() {
   $(".content-wrapper").css("top", $(".content-wrapper").offset().top);
 
   // transition splash image brightness in slowly
-  initDrawShade();
+  splashAnimator = new SplashAnimator($("canvas#shade"));
+  splashAnimator.start();
 });
 
-function initDrawShade() {
-  interval = window.setInterval(drawShade, 1000 / fps);
+// class to handle animating splash image to look like a camera
+function SplashAnimator(canvas) {
+  this.canvas = canvas;
+  this.canvas.attr("width", this.canvas.outerWidth());
+  this.canvas.attr("height", this.canvas.outerHeight());
+  this.canvasWidth = this.canvas.outerWidth();
+  this.canvasHeight = this.canvas.outerHeight();
+  this.ctx = this.canvas.get(0).getContext("2d");
+
+  this.initialShade = 0.4; // must match background css of canvas to prevent jank
+  this.shadeLimit = 0.8;
+  this.fps = 60;
+  this.interval = null;
+  this.recTimeout = null;
+  this.step = 0.002;
+  this.x = Math.acos(this.initialShade);
+  this.started = false;
+  this.shade = (Math.cos(this.x) + 1) * this.shadeLimit / 2;
+  this.textWidth = null;
+  this.isRec = false;
+  this.recPadding = 20;
+  this.recOffset = $(".home-menu").outerHeight() + this.recPadding;
+  this.ctx.font = "20px Roboto";
+  this.textWidth = this.ctx.measureText("REC").width;
+  this.recLineLength = Math.min(this.canvasWidth, this.canvasHeight) / 3;
 }
 
-function drawShade() {
-  shade = shade + (up ? 1 : -1) * step;
-  if (shade < 0) {
-    window.clearInterval(interval);
-    up = true;
-    interval = window.setTimeout(initDrawShade, 6000);
+SplashAnimator.prototype.start = function() {
+  var _this = this;
+  this.interval = window.setInterval(function() { _this.draw() }, 1000 / _this.fps);
+  this.setRec();
+};
+
+SplashAnimator.prototype.stop = function() {
+  var _this = this;
+  window.clearInterval(_this.interval);
+};
+
+SplashAnimator.prototype.draw = function() {
+  this.x = this.x + this.step;
+  this.shade = (Math.cos(this.x) + 1) * this.shadeLimit / 2;
+
+  this.drawShade();
+  this.drawRec();
+
+  if (!this.started) {
+    this.canvas.css("background", "none");
+    this.started = true;
+  }
+};
+
+SplashAnimator.prototype.drawShade = function() {
+  this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+  this.ctx.fillStyle = 'rgba(0,0,0,' + this.shade + ')';
+  this.ctx.fillRect (0, 0, this.canvasWidth, this.canvasHeight);
+};
+
+SplashAnimator.prototype.drawRec = function() {
+  if (this.isRec) {
+    this.ctx.fillStyle = 'rgba(255,0,0,' + 0.6 + ')';
+    this.ctx.fillText("REC", this.canvasWidth - this.textWidth - this.recPadding * 1.25, this.recOffset + 16 + this.recPadding * 0.5);
+    this.ctx.beginPath();
+    this.ctx.arc(this.canvasWidth - this.textWidth - this.recPadding - 10 - this.recPadding * 0.25, this.recOffset + 8 + this.recPadding * 0.5, 8, 0, 2 * Math.PI);
+    this.ctx.fill();
   }
 
-  if (shade > 0.6) {
-    window.clearInterval(interval);
-    up = false;
-    interval = window.setTimeout(initDrawShade, 6000);
-  }
+    this.ctx.strokeStyle = 'rgba(255,255,255,' + 0.6 + ')';
+    //ctx.lineWidth = 2;
+    this.ctx.beginPath();
 
-  ctx.clearRect(0, 0, canvas.outerWidth(), canvas.outerHeight());
-  ctx.fillStyle = 'rgba(0,0,0,' + shade + ')';
-  ctx.fillRect (0, 0, canvas.outerWidth(), canvas.outerHeight());
-}
+    // top left corner
+    this.ctx.moveTo(this.recPadding, this.recOffset + this.recLineLength);
+    this.ctx.lineTo(this.recPadding, this.recOffset);
+    this.ctx.lineTo(this.recPadding + this.recLineLength, this.recOffset);
+
+    // top right corner
+    this.ctx.moveTo(this.canvasWidth - this.recLineLength - this.recPadding, this.recOffset);
+    this.ctx.lineTo(this.canvasWidth - this.recPadding, this.recOffset);
+    this.ctx.lineTo(this.canvasWidth - this.recPadding, this.recOffset + this.recLineLength);
+
+    // bottom right corner
+    this.ctx.moveTo(this.canvasWidth - this.recPadding, this.canvasHeight - this.recLineLength - this.recPadding);
+    this.ctx.lineTo(this.canvasWidth - this.recPadding, this.canvasHeight - this.recPadding);
+    this.ctx.lineTo(this.canvasWidth - this.recLineLength - this.recPadding, this.canvasHeight - this.recPadding);
+
+    // bottom left corner
+    this.ctx.moveTo(this.recPadding + this.recLineLength, this.canvasHeight - this.recPadding);
+    this.ctx.lineTo(this.recPadding, this.canvasHeight - this.recPadding);
+    this.ctx.lineTo(this.recPadding, this.canvasHeight - this.recLineLength - this.recPadding);
+
+    // put it down!
+    this.ctx.stroke();
+
+    // add a timestamp
+    var time = (new Date()).toLocaleTimeString();
+    var timeWidth = this.ctx.measureText(time).width;
+    this.ctx.fillStyle = 'rgba(255,255,255,' + 0.6 + ')';
+    this.ctx.fillText(time, this.canvasWidth - timeWidth - this.recPadding * 1.5, this.canvasHeight - this.recPadding * 1.5);
+};
+
+SplashAnimator.prototype.setRec = function() {
+  this.isRec = !this.isRec;
+  var _this = this;
+  this.recTimeout = window.setTimeout(function() { _this.setRec() }, (_this.isRec ? 500 : 1000));
+};
