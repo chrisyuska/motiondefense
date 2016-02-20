@@ -50,19 +50,19 @@ function SplashAnimator(canvas) {
   this.ctx.font = this.fontSize + "px Roboto";
   this.textWidth = this.ctx.measureText("REC").width;
   this.recLineLength = Math.min(this.canvasWidth, this.canvasHeight) / 3;
-  this.recRadius = this.fontSize * 0.5 - 1;
+  this.recRadius = this.fontSize * 0.4;
   this.lineWidth = 2;
 }
 
 SplashAnimator.prototype.start = function() {
-  var _this = this;
-  this.interval = window.setInterval(function() { _this.draw() }, 1000 / _this.fps);
+  this.draw();
   this.setRec();
 };
 
 SplashAnimator.prototype.stop = function() {
   var _this = this;
-  window.clearInterval(_this.interval);
+  window.clearTimeout(_this.interval);
+  window.clearTimeout(_this.recTimeout);
 };
 
 SplashAnimator.prototype.draw = function() {
@@ -76,6 +76,9 @@ SplashAnimator.prototype.draw = function() {
     this.canvas.css("background", "none");
     this.started = true;
   }
+
+  var _this = this;
+  this.interval = window.setTimeout(function() { _this.draw() }, 1000 / _this.fps);
 };
 
 SplashAnimator.prototype.drawShade = function() {
@@ -93,7 +96,7 @@ SplashAnimator.prototype.drawRec = function() {
 
     this.ctx.beginPath();
     this.ctx.arc(this.canvasWidth - this.textWidth - this.recPadding * 1.3 - this.recRadius * 2,
-        this.recOffset + this.fontSize - this.recRadius + this.recPadding * 0.5,
+        this.recOffset + this.fontSize * 1.05 - this.recRadius + this.recPadding * 0.5,
         this.recRadius,
         0, 2 * Math.PI);
     this.ctx.fill();
