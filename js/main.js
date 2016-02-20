@@ -46,9 +46,12 @@ function SplashAnimator(canvas) {
   this.isRec = false;
   this.recPadding = 20;
   this.recOffset = $(".home-menu").outerHeight() + this.recPadding;
-  this.ctx.font = "20px Roboto";
+  this.fontSize = parseInt($("body").css("font-size").match(/[0-9]+/));
+  this.ctx.font = this.fontSize + "px Roboto";
   this.textWidth = this.ctx.measureText("REC").width;
   this.recLineLength = Math.min(this.canvasWidth, this.canvasHeight) / 3;
+  this.recRadius = this.fontSize * 0.5 - 1;
+  this.lineWidth = 2;
 }
 
 SplashAnimator.prototype.start = function() {
@@ -84,14 +87,20 @@ SplashAnimator.prototype.drawShade = function() {
 SplashAnimator.prototype.drawRec = function() {
   if (this.isRec) {
     this.ctx.fillStyle = 'rgba(255,0,0,' + 0.6 + ')';
-    this.ctx.fillText("REC", this.canvasWidth - this.textWidth - this.recPadding * 1.25, this.recOffset + 16 + this.recPadding * 0.5);
+    this.ctx.fillText("REC",
+        this.canvasWidth - this.textWidth - this.recPadding * 1.5,
+        this.recOffset + this.fontSize + this.recPadding * 0.5);
+
     this.ctx.beginPath();
-    this.ctx.arc(this.canvasWidth - this.textWidth - this.recPadding - 10 - this.recPadding * 0.25, this.recOffset + 8 + this.recPadding * 0.5, 8, 0, 2 * Math.PI);
+    this.ctx.arc(this.canvasWidth - this.textWidth - this.recPadding * 1.3 - this.recRadius * 2,
+        this.recOffset + this.fontSize - this.recRadius + this.recPadding * 0.5,
+        this.recRadius,
+        0, 2 * Math.PI);
     this.ctx.fill();
   }
 
     this.ctx.strokeStyle = 'rgba(255,255,255,' + 0.6 + ')';
-    //ctx.lineWidth = 2;
+    //ctx.lineWidth = this.lineWidth;
     this.ctx.beginPath();
 
     // top left corner
@@ -105,14 +114,20 @@ SplashAnimator.prototype.drawRec = function() {
     this.ctx.lineTo(this.canvasWidth - this.recPadding, this.recOffset + this.recLineLength);
 
     // bottom right corner
-    this.ctx.moveTo(this.canvasWidth - this.recPadding, this.canvasHeight - this.recLineLength - this.recPadding);
-    this.ctx.lineTo(this.canvasWidth - this.recPadding, this.canvasHeight - this.recPadding);
-    this.ctx.lineTo(this.canvasWidth - this.recLineLength - this.recPadding, this.canvasHeight - this.recPadding);
+    this.ctx.moveTo(this.canvasWidth - this.recPadding,
+                    this.canvasHeight - this.recLineLength - this.recPadding);
+    this.ctx.lineTo(this.canvasWidth - this.recPadding,
+                    this.canvasHeight - this.recPadding);
+    this.ctx.lineTo(this.canvasWidth - this.recLineLength - this.recPadding,
+                    this.canvasHeight - this.recPadding);
 
     // bottom left corner
-    this.ctx.moveTo(this.recPadding + this.recLineLength, this.canvasHeight - this.recPadding);
-    this.ctx.lineTo(this.recPadding, this.canvasHeight - this.recPadding);
-    this.ctx.lineTo(this.recPadding, this.canvasHeight - this.recLineLength - this.recPadding);
+    this.ctx.moveTo(this.recPadding + this.recLineLength,
+                    this.canvasHeight - this.recPadding);
+    this.ctx.lineTo(this.recPadding,
+                    this.canvasHeight - this.recPadding);
+    this.ctx.lineTo(this.recPadding,
+                    this.canvasHeight - this.recLineLength - this.recPadding);
 
     // put it down!
     this.ctx.stroke();
@@ -121,7 +136,9 @@ SplashAnimator.prototype.drawRec = function() {
     var time = (new Date()).toLocaleTimeString();
     var timeWidth = this.ctx.measureText(time).width;
     this.ctx.fillStyle = 'rgba(255,255,255,' + 0.6 + ')';
-    this.ctx.fillText(time, this.canvasWidth - timeWidth - this.recPadding * 1.5, this.canvasHeight - this.recPadding * 1.5);
+    this.ctx.fillText(time,
+                      this.canvasWidth - timeWidth - this.recPadding * 1.5 - this.lineWidth,
+                      this.canvasHeight - this.recPadding * 1.5 - this.lineWidth);
 };
 
 SplashAnimator.prototype.setRec = function() {
