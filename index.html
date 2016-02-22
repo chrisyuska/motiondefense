@@ -166,7 +166,12 @@
         Made with love by the <a href="https://kicklet.com" target="_blank">Kicklet</a> team
       </div>
     </div>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <!--[if lte IE 8]>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <!--<![endif]-->
     <script type="text/javascript" src="js/main.js"></script>
   </body>
 </html>
