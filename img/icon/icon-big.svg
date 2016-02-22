@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="768" height="768" viewbox="0 0 768 768">
+  <filter id="drop-shadow">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
+    <feOffset dx="16" dy="16" />
+    <feMerge>
+      <feMergeNode />
+      <feMergeNode in="SourceGraphic" />
+    </feMerge>
+  </filter>
+  <circle cx="384" cy="384" r="96" fill="#e00" filter="url(#drop-shadow)" />
+  <path id="outer-ring" d="
+    M64 288 L 64 104 Q 64 64 104 64 L 288 64
+    M480 64 L 664 64 Q 704 64 704 104 L 704 288
+    M64 480 L 64 664 Q 64 704 104 704 L 288 704
+    M480 704 L 664 704 Q 704 704 704 664 L 704 480"
+    stroke="#fff" stroke-width="48" fill="none" filter="url(#drop-shadow)" />
+</svg>

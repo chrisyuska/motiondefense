@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewbox="0 0 400 400">
+  <!--<rect x="0" y="0" width="400" height="400"/>-->
+  <!--<polygon points="100,120 300,30 300,170 100,280" fill="#fff" />-->
+  <circle cx="300" cy="250" r="50" fill="#ccc" />
+  <polygon points="227.639,230.279 277.639,205.279 322.361,294.721 272.361,319.721" fill="#ccc" />
+  <rect x="200" y="100" width="100" height="175" fill="#ddd" />
+  <circle cx="250" cy="275" r="50" fill="#ddd" />
+  <polygon points="67.171,127.046 271.274,36.165 328.726,163.835 132.829,272.954" fill="#eee" />
+  <circle cx="100" cy="200" r="80" fill="#eee" />
+  <circle cx="300" cy="100" r="70" fill="#eee" />
+  <circle cx="100" cy="200" r="70" fill="#111" />
+  <!--<circle cx="227.639" cy="230.279" r="5" fill="#f00" />
+  <circle cx="272.361" cy="319.721" r="5" fill="#f00" />
+  <circle cx="277.639" cy="205.279" r="5" fill="#f00" />
+  <circle cx="322.361" cy="294.721" r="5" fill="#f00" />-->
+  <!--<circle cx="67.171" cy="127.046" r="5" fill="#f00" />
+  <circle cx="132.829" cy="272.954" r="5" fill="#f00" />
+  <circle cx="271.274" cy="36.165" r="5" fill="#f00" />
+  <circle cx="328.726" cy="163.835" r="5" fill="#f00" />-->
+  <!--<path d="M100 120 L300 30 C 400 -15, 400 115, 300 170, L100 280 C 0 325, 0 165, 100 120" fill="#fff" />-->
+  <filter id="drop-shadow">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
+    <feOffset dx="4" dy="4" />
+    <feMerge>
+      <feMergeNode />
+      <feMergeNode in="SourceGraphic" />
+    </feMerge>
+  </filter>
+  <!--<path id="k" d="M128 100 V300 H150 V222 L172 200 L250 300 H272 L187.556 184.444 L272 100 H250 L150 200 V100 Z" fill="#fff" filter="url(#drop-shadow)" />-->
+</svg>

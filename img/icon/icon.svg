@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewbox="0 0 192 192">
+  <filter id="drop-shadow">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
+    <feOffset dx="4" dy="4" />
+    <feMerge>
+      <feMergeNode />
+      <feMergeNode in="SourceGraphic" />
+    </feMerge>
+  </filter>
+  <circle cx="96" cy="96" r="24" fill="#e00" filter="url(#drop-shadow)" />
+  <path id="outer-ring" d="
+    M16 72 L 16 26 Q 16 16 26 16 L 72 16
+    M120 16 L 166 16 Q 176 16 176 26 L 176 72
+    M16 120 L 16 166 Q 16 176 26 176 L 72 176
+    M120 176 L 166 176 Q 176 176 176 166 L 176 120"
+    stroke="#fff" stroke-width="12" fill="none" filter="url(#drop-shadow)" />
+</svg>
