@@ -120,6 +120,7 @@ a.pure-button-primary {
 }
 
 .home-menu .pure-menu-heading {
+  float: left;
   color: white;
   font-size: 120%;
   text-transform: none;
