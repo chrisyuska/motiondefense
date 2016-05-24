@@ -16,43 +16,70 @@ $(function() {
   });
 
   // set height of splash and offset of content wrapper so mobile url bar doesn't cause resizing on scroll
-  $(".splash-container").outerHeight($(".splash-container").outerHeight());
-  $(".content-wrapper").css("top", $(".content-wrapper").offset().top);
+  resizeSplash();
 
   // transition splash image brightness in slowly
   splashAnimator = new SplashAnimator($("canvas#shade"));
   splashAnimator.start();
+
+  $(window).resize(function() {
+    resizePlatformIcons();
+    resizeSplash();
+  });
+  resizePlatformIcons();
 });
+
+function resizeSplash() {
+  $(".splash-container").outerHeight($(".splash-container").outerHeight());
+  $(".content-wrapper").css("top", $(".content-wrapper").offset().top);
+
+  // make sure splash animator updates measurements correctly
+  if (splashAnimator) splashAnimator.updateMeasurements();
+}
+
+function resizePlatformIcons() {
+  if ($(".platform-icons").css("min-width") == "1px") {
+    var contentHeight = $(".platform-content").outerHeight();
+    $(".platform-icons").css("padding", 0)
+      .css("line-height", contentHeight + "px")
+      .outerHeight(contentHeight);
+  } else {
+    $(".platform-icons").css("padding", "")
+      .css("line-height", "")
+      .outerHeight("");
+  }
+}
 
 // class to handle animating splash image to look like a camera
 function SplashAnimator(canvas) {
   this.canvas = canvas;
-  this.canvas.attr("width", this.canvas.outerWidth());
-  this.canvas.attr("height", this.canvas.outerHeight());
-  this.canvasWidth = this.canvas.outerWidth();
-  this.canvasHeight = this.canvas.outerHeight();
   this.ctx = this.canvas.get(0).getContext("2d");
 
-  this.initialShade = 0.4; // must match background css of canvas to prevent jank
-  this.shadeLimit = 0.8;
+  this.updateMeasurements();
+
   this.fps = 60;
   this.interval = null;
   this.recTimeout = null;
   this.step = 0.002;
-  this.x = Math.acos(this.initialShade);
   this.started = false;
-  this.shade = (Math.cos(this.x) + 1) * this.shadeLimit / 2;
-  this.textWidth = null;
   this.isRec = false;
   this.recPadding = 20;
   this.recOffset = $(".home-menu").outerHeight() + this.recPadding;
-  this.fontSize = parseInt($("body").css("font-size").match(/[0-9]+/));
-  this.ctx.font = this.fontSize + "px Roboto";
-  this.textWidth = this.ctx.measureText("REC").width;
-  this.recLineLength = Math.min(this.canvasWidth, this.canvasHeight) / 3;
-  this.recRadius = this.fontSize * 0.4;
   this.lineWidth = 2;
 }
+
+SplashAnimator.prototype.updateMeasurements = function() {
+  this.canvas.attr("width", this.canvas.outerWidth());
+  this.canvas.attr("height", this.canvas.outerHeight());
+  this.canvasWidth = this.canvas.outerWidth();
+  this.canvasHeight = this.canvas.outerHeight();
+  this.recLineLength = Math.min(this.canvasWidth, this.canvasHeight) / 3;
+
+  this.fontSize = parseInt($("body").css("font-size").match(/[0-9]+/));
+  this.ctx.font = this.fontSize + "px Roboto";
+  this.recRadius = this.fontSize * 0.4;
+  this.textWidth = this.ctx.measureText("REC").width;
+};
 
 SplashAnimator.prototype.start = function() {
   this.draw();
@@ -66,14 +93,9 @@ SplashAnimator.prototype.stop = function() {
 };
 
 SplashAnimator.prototype.draw = function() {
-  this.x = this.x + this.step;
-  this.shade = (Math.cos(this.x) + 1) * this.shadeLimit / 2;
-
-  this.drawShade();
   this.drawRec();
 
   if (!this.started) {
-    this.canvas.css("background", "none");
     this.started = true;
   }
 
@@ -81,15 +103,10 @@ SplashAnimator.prototype.draw = function() {
   this.interval = window.setTimeout(function() { _this.draw() }, 1000 / _this.fps);
 };
 
-SplashAnimator.prototype.drawShade = function() {
-  this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
-  this.ctx.fillStyle = 'rgba(0,0,0,' + this.shade + ')';
-  this.ctx.fillRect (0, 0, this.canvasWidth, this.canvasHeight);
-};
-
 SplashAnimator.prototype.drawRec = function() {
+  this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
   if (this.isRec) {
-    this.ctx.fillStyle = 'rgba(255,0,0,' + 0.6 + ')';
+    this.ctx.fillStyle = 'rgba(255,0,0,' + 0.8 + ')';
     this.ctx.fillText("REC",
         this.canvasWidth - this.textWidth - this.recPadding * 1.5,
         this.recOffset + this.fontSize + this.recPadding * 0.5);
@@ -102,7 +119,7 @@ SplashAnimator.prototype.drawRec = function() {
     this.ctx.fill();
   }
 
-    this.ctx.strokeStyle = 'rgba(255,255,255,' + 0.6 + ')';
+    this.ctx.strokeStyle = 'rgba(255,255,255,' + 0.8 + ')';
     //ctx.lineWidth = this.lineWidth;
     this.ctx.beginPath();
 
@@ -138,7 +155,7 @@ SplashAnimator.prototype.drawRec = function() {
     // add a timestamp
     var time = (new Date()).toLocaleTimeString();
     var timeWidth = this.ctx.measureText(time).width;
-    this.ctx.fillStyle = 'rgba(255,255,255,' + 0.6 + ')';
+    this.ctx.fillStyle = 'rgba(255,255,255,' + 0.8 + ')';
     this.ctx.fillText(time,
                       this.canvasWidth - timeWidth - this.recPadding * 1.5 - this.lineWidth,
                       this.canvasHeight - this.recPadding * 1.5 - this.lineWidth);
