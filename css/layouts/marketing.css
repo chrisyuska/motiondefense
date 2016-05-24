@@ -169,6 +169,7 @@ a.pure-button-primary {
 
 canvas#shade {
   position: absolute;
+  display: block;
   background: rgba(0, 0, 0, 0.4);
   top: 0;
   left: 0;
