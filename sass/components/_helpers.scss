@@ -1,0 +1,33 @@
+.hidden {
+  display: none !important;
+}
+
+.invisible {
+  visibility: hidden !important;
+}
+
+.bold {
+  font-weight: bold !important;
+}
+
+.border-bottom-sm {
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.center-align-sm {
+  text-align: center;
+}
+
+@media #{$medium-and-up} {
+  .float-right-on-md {
+    float: right;
+  }
+
+  .border-bottom-sm {
+    border: none;
+  }
+
+  .center-align-sm {
+    text-align: left;
+  }
+}

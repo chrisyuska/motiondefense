@@ -1,0 +1,20 @@
+{
+  "name": "motion-defense-site",
+  "version": "0.1.0",
+  "description": "Turn your existing cameras into a home security system, complete with motion detection, alerts, and remote viewing.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrisyuska/motiondefense"
+  },
+  "author": "Chris Yuska <chrisyuska@gmail.com>",
+  "license": "UNLICENSED",
+  "private": true,
+  "homepage": "http://motiondefense.com",
+  "devDependencies": {
+    "gulp": "3.9.1",
+    "gulp-clean-css": "^2.0.8",
+    "gulp-notify": "2.2.0",
+    "gulp-sass": "2.3.1",
+    "node-sass": "3.4.2"
+  }
+}

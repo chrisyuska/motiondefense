@@ -1,0 +1,86 @@
+/*
+ * -- SPLASH STYLES --
+ * This is the blue top section that appears on the page.
+ */
+.splash-container {
+  background: color("blue", "accent-4");
+  background: url(../img/common/home-1920x1080-90-dark-compressed-70.jpg) center/cover;
+  z-index: 1;
+  overflow: hidden;
+  /* The following styles are required for the "scroll-over" effect */
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+}
+
+canvas#shade {
+  position: absolute;
+  display: block;
+  background: rgba(0, 0, 0, 0.4);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.splash {
+  height: 50%;
+  margin: auto 0;
+  text-align: center;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/* This is the main heading that appears on the blue section */
+.splash-head {
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* This is the subheading that appears on the blue section */
+.splash-subhead {
+  color: white;
+  letter-spacing: 0.05em;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+
+/*
+ * -- TABLET (AND UP) MEDIA QUERIES --
+ * On tablets and other medium-sized devices, we want to customize some
+ * of the mobile styles.
+ */
+@media #{$medium-and-up} {
+  /* We decrease the width of the .splash, since we have more width
+   * to work with */
+  .splash {
+    height: 50%;
+    text-align: left;
+  }
+
+  .splash-head {
+    font-weight: 100;
+    font-size: 250%;
+  }
+}
+
+/*
+ * -- DESKTOP (AND UP) MEDIA QUERIES --
+ * On desktops and other large devices, we want to over-ride some
+ * of the mobile, tablet, and netbook styles.
+ */
+@media #{$large-and-up} {
+  /* We increase the header font size even more */
+  .splash-head {
+    font-size: 300%;
+  }
+
+  .platform-icons {
+    font-size: 6em;
+  }
+}

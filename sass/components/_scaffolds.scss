@@ -1,0 +1,31 @@
+* {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .brand-logo {
+  font-weight: 100;
+}
+
+main {
+  overflow-x: hidden;
+
+  &.container {
+    overflow-x: visible;
+  }
+}
+
+.l-box {
+  padding: 1rem;
+}
+
+.waves-effect.waves-blue .waves-ripple {
+  background-color: rgba(18, 24, 31, 0.65);
+}
