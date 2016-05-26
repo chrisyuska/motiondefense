@@ -13,171 +13,179 @@
     <link rel="icon" type="image/png" href="img/icon/favicon-16x16.png" sizes="16x16">
     <link rel="shortcut icon" href="img/icon/favicon.ico">
     <meta id="theme-color" name="theme-color" content="#2d3e50">
-    <link rel="stylesheet" href="css/pure/0.6.0/pure-min.css">
-    <!--[if lte IE 8]>
-      <link rel="stylesheet" href="css/pure/0.6.0/grids-responsive-old-ie-min.css">
-    <![endif]-->
-    <!--[if gt IE 8]><!-->
-      <link rel="stylesheet" href="css/pure/0.6.0/grids-responsive-min.css">
-    <!--<![endif]-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/layouts/marketing.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300" type="text/css">
+    <link rel="stylesheet" href="css/materialize.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <!--[if lte IE 8]>
       <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
     <![endif]-->
   </head>
   <body>
-    <div class="header">
-      <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
-        <div class="container">
-          <a class="pure-menu-heading" href="">Motion Defense</a>
-
-          <ul class="pure-menu-list">
-            <li class="pure-menu-item"><a href="#tour" class="pure-menu-link">Tour</a></li>
-            <li class="pure-menu-item"><a href="#register" class="pure-menu-link">Install</a></li>
-          </ul>
-        </div>
+    <header>
+      <div class="navbar-fixed">
+        <nav class="top-nav web-nav">
+          <div class="nav-wrapper container">
+            <div class="row">
+              <div class="col s12">
+                <a href="/" class="brand-logo">Motion Defense</a>
+                <ul id="nav-mobile" class="right">
+                  <li><a href="#tour">Tour</a></li>
+                  <li><a href="#register">Install</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
       </div>
-    </div>
+    </header>
 
-    <div class="splash-container">
-      <canvas id="shade"></canvas>
-      <div class="splash">
-        <div class="container pure-g">
-          <div class="l-box pure-u-1 pure-u-md-1-2">
+    <main>
+      <div class="splash-container row">
+        <canvas id="shade"></canvas>
+        <div class="splash container">
+          <div class="l-box col s12 m6">
             <h1 class="splash-head">Your home.  Safer.</h1>
             <p class="splash-subhead">
               Turn your existing cameras into a home security system, complete with motion detection, alerts, and remote viewing.
             </p>
             <p>
-              <a href="#tour" class="pure-button pure-button-primary">Get Started</a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="content-wrapper" id="tour">
-      <div class="content l-box is-center-sm">
-        <h2 class="content-head is-center l-side">Fully featured and customizable.</h2>
-        <div class="pure-g container">
-          <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-            <h3 class="content-subhead">
-              <i class="fa fa-video-camera"></i>
-              Combine your cameras
-            </h3>
-            <p>
-              Most cameras are compatible, so combine your webcams and IP cameras and make the most of your system.
-            </p>
-          </div>
-          <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-            <h3 class="content-subhead">
-              <i class="fa fa-inbox"></i>
-              Stay in the loop
-            </h3>
-            <p>
-              Receive alerts when your cameras detect movement via email or SMS, with webhook support coming soon.
-            </p>
-          </div>
-          <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-            <h3 class="content-subhead">
-              <i class="fa fa-globe"></i>
-              View from anywhere
-            </h3>
-            <p>
-              View live feeds of your cameras from anywhere in the world with internet access on any smartphone or computer.
-            </p>
-          </div>
-          <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-            <h3 class="content-subhead">
-              <i class="fa fa-calendar-o"></i>
-              Set it and forget it
-            </h3>
-            <p>
-              Rest easy knowing that you can set the application to run automatically while you're away with custom schedules.
+              <a href="#tour" class="btn blue waves-effect waves-light">Get Started</a>
             </p>
           </div>
         </div>
       </div>
 
-      <div class="ribbon pure-g">
-        <div class="container">
-          <div class="l-box border-bottom-sm is-center pure-u-1 pure-u-md-1-2 pure-u-lg-3-8 platform-icons">
-            <i class="fa fa-windows"></i>
-            <i class="fa fa-apple"></i>
-            <i class="fa fa-linux"></i>
-          </div>
-          <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-5-8 is-center-sm l-box border-bottom-sm ribbon-content platform-content">
-            <h2 class="content-head content-head-ribbon">Available on all platforms.</h2>
-
-            <p>
-              Motion Defense has been built from the beginning to run on any computer you have laying around.  A public beta will be available soon for Windows, Mac, and Linux.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="content" id="register">
-        <div class="pure-g container is-center l-side">
-          <div class="pure-u-1 l-side">
-            <h2 class="content-head">Get notified when it's released.</h2>
-
-            <p>
-              We're working hard to get the application ready, but we need a little bit more time.  Submit your email and we'll let you know when it's ready to download.
-            </p>
-          </div>
-        </div>
-        <div class="pure-g container">
-          <div class="l-box border-bottom-sm pure-u-1 pure-u-md-3-8">
-            <!-- Begin MailChimp Signup Form -->
-            <div id="mc_embed_signup">
-              <form action="https://kicklet.us10.list-manage.com/subscribe/post?u=8fdcdf69bba7ccd3f4c7d1cf1&amp;id=4052ab1505" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate pure-form pure-form-stacked" target="_blank" novalidate>
-                <div id="mc_embed_signup_scroll">
-                  <div class="mc-field-group">
-                    <label for="mce-FNAME">Full Name </label>
-                    <input type="text" value="" name="FNAME" class="required" id="mce-FNAME" placeholder="Your name">
-                  </div>
-                  <div class="mc-field-group">
-                    <label for="mce-EMAIL">Email Address </label>
-                    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Your email">
-                  </div>
-                  <div id="mce-responses" class="clear">
-                    <div class="response" id="mce-error-response" style="display:none"></div>
-                    <div class="response" id="mce-success-response" style="display:none"></div>
-                  </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                  <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_8fdcdf69bba7ccd3f4c7d1cf1_4052ab1505" tabindex="-1" value=""></div>
-                  <div class="clear"><button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="pure-button">Submit</button></div>
-                </div>
-              </form>
+      <div class="content-wrapper" id="tour">
+        <div class="row container">
+          <div class="col s12 content l-box">
+            <h2 class="content-head l-side center-align">Fully featured and customizable.</h2>
+            <div class="row">
+              <div class="l-box col s12 m6 l3">
+                <h3 class="content-subhead">
+                  <i class="fa fa-video-camera"></i>
+                  Combine your cameras
+                </h3>
+                <p>
+                  Most cameras are compatible, so combine your webcams and IP cameras and make the most of your system.
+                </p>
+              </div>
+              <div class="l-box col s12 m6 l3">
+                <h3 class="content-subhead">
+                  <i class="fa fa-inbox"></i>
+                  Stay in the loop
+                </h3>
+                <p>
+                  Receive alerts when your cameras detect movement via email or SMS, with webhook support coming soon.
+                </p>
+              </div>
+              <div class="l-box col s12 m6 l3">
+                <h3 class="content-subhead">
+                  <i class="fa fa-globe"></i>
+                  View from anywhere
+                </h3>
+                <p>
+                  View live feeds of your cameras from anywhere in the world with internet access on any smartphone or computer.
+                </p>
+              </div>
+              <div class="l-box col s12 m6 l3">
+                <h3 class="content-subhead">
+                  <i class="fa fa-calendar-o"></i>
+                  Set it and forget it
+                </h3>
+                <p>
+                  Rest easy knowing that you can set the application to run automatically while you're away with custom schedules.
+                </p>
+              </div>
             </div>
-            <!--End mc_embed_signup-->
-          </div>
-
-          <div class="l-box border-bottom-sm pure-u-1 pure-u-md-5-8 is-center-sm">
-            <h3>Contact Us</h3>
-            <p>
-              Although we're usually coding away, we'd love to hear from you.  Have questions, concerns, or just want to say hi?  <a href="mailto:support@kicklet.com?subject=Motion%20Defense" target="_blank">Send us an email!</a>
-            </p>
-
-            <h3>More Information</h3>
-            <p>
-              A more complete site is in the works, but we're a small dev team and we wanted to prioritize getting the application to you first.  If you have any questions at all, don't hesitate to <a href="mailto:support@kicklet.com?subject=Motion%20Defense" target="_blank">contact us</a>.
-            </p>
           </div>
         </div>
 
+        <div class="ribbon row">
+          <div class="container">
+            <div class="l-box border-bottom-sm center-align col s12 m6 l5 platform-icons">
+              <i class="fa fa-windows"></i>
+              <i class="fa fa-apple"></i>
+              <i class="fa fa-linux"></i>
+            </div>
+            <div class="col s12 m6 l7 is-center-sm l-box border-bottom-sm ribbon-content platform-content">
+              <h2 class="content-head content-head-ribbon">Available on all platforms.</h2>
+
+              <p>
+                Motion Defense has been built from the beginning to run on any computer you have laying around.  A public beta will be available soon for Windows, Mac, and Linux.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="content" id="register">
+          <div class="row container center-align l-side">
+            <div class="col s12 l-side">
+              <h2 class="content-head">Get notified when it's released.</h2>
+
+              <p>
+                We're working hard to get the application ready, but we need a little bit more time.  Submit your email and we'll let you know when it's ready to download.
+              </p>
+            </div>
+          </div>
+          <div class="row container">
+            <div class="l-box border-bottom-sm col s12 m5">
+              <!-- Begin MailChimp Signup Form -->
+              <div id="mc_embed_signup">
+                <form action="https://kicklet.us10.list-manage.com/subscribe/post?u=8fdcdf69bba7ccd3f4c7d1cf1&amp;id=4052ab1505" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate pure-form pure-form-stacked" target="_blank" novalidate>
+                  <div id="mc_embed_signup_scroll">
+                    <div class="mc-field-group">
+                      <label for="mce-FNAME">Full Name </label>
+                      <input type="text" value="" name="FNAME" class="required" id="mce-FNAME" placeholder="Your name">
+                    </div>
+                    <div class="mc-field-group">
+                      <label for="mce-EMAIL">Email Address </label>
+                      <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Your email">
+                    </div>
+                    <div id="mce-responses" class="clear">
+                      <div class="response" id="mce-error-response" style="display:none"></div>
+                      <div class="response" id="mce-success-response" style="display:none"></div>
+                    </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_8fdcdf69bba7ccd3f4c7d1cf1_4052ab1505" tabindex="-1" value=""></div>
+                    <div class="clear"><button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn blue waves-effect waves-light">Submit</button></div>
+                  </div>
+                </form>
+              </div>
+              <!--End mc_embed_signup-->
+            </div>
+
+            <div class="l-box border-bottom-sm col s12 m7 is-center-sm">
+              <h3>Contact Us</h3>
+              <p>
+                Although we're usually coding away, we'd love to hear from you.  Have questions, concerns, or just want to say hi?  <a href="mailto:support@kicklet.com?subject=Motion%20Defense" target="_blank">Send us an email!</a>
+              </p>
+
+              <h3>More Information</h3>
+              <p>
+                A more complete site is in the works, but we're a small dev team and we wanted to prioritize getting the application to you first.  If you have any questions at all, don't hesitate to <a href="mailto:support@kicklet.com?subject=Motion%20Defense" target="_blank">contact us</a>.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="footer l-box is-center">
-        Made with love by the <a href="https://kicklet.com" target="_blank">Kicklet</a> team
+    </main>
+
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col s12 center-align">
+            Made with love by the <a href="https://kicklet.com" target="_blank">Kicklet</a> team
+          </div>
+        </div>
       </div>
-    </div>
+    </footer>
     <!--[if lte IE 8]>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <![endif]-->
     <!--[if gt IE 8]><!-->
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+      <script type="text/javascript" src="vendor/js/jquery-2.2.2.min.js"></script>
     <!--<![endif]-->
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="vendor/js/materialize.min.js"></script>
   </body>
 </html>
