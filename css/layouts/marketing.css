@@ -175,6 +175,10 @@ canvas#shade {
   .border-bottom-sm {
     border: none;
   }
+
+  .is-center-sm {
+    text-align: left;
+  }
 }
 
 /*

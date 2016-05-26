@@ -64,7 +64,7 @@ function SplashAnimator(canvas) {
   this.started = false;
   this.isRec = false;
   this.recPadding = 20;
-  this.recOffset = $(".home-menu").outerHeight() + this.recPadding;
+  this.recOffset = $(".navbar-fixed").outerHeight() + this.recPadding;
   this.lineWidth = 2;
 }
 

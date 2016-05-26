@@ -3549,6 +3549,14 @@ nav {
   .navbar-fixed {
     height: 64px; } }
 
+.navbar-fixed {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0; }
+  .navbar-fixed nav {
+    position: relative; }
+
 ul.side-nav li a i.material-icons, ul.side-nav li a span {
   vertical-align: middle; }
 
