@@ -48,16 +48,17 @@ function resizeSplash() {
 
 function resizeFeaturette() {
   if ($(".platform-icons").css("min-width") == "1px") {
-    var heights = $(".featurette .content-head").parent().map(function() { return $(this).outerHeight(); });
+    var heights = $(".featurette img").map(function() { return $(this).outerHeight(); });
     var height = Math.max(...heights);
     $(".featurette .row").each(function() {
-      $(this).find("img").css("max-height", height + "px");
       $(this).find("img").parent().outerHeight(height);
+      var adjHeight = (height - $(this).find(".featurette-content").outerHeight()) / 2;
+      $(this).find(".content-head").parent().css("padding-top", adjHeight + "px");
     });
   } else {
     $(".featurette .row").each(function() {
-      $(this).find("img").css("max-height", "");
-      $(this).find("img").parent().outerHeight($(this).find("img").outerHeight());
+      $(this).find("img").parent().outerHeight("");
+      $(this).find(".content-head").parent().css("padding-top", "");
     });
   }
 }

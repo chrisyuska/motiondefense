@@ -11419,7 +11419,8 @@ canvas#shade {
   width: 100%;
   min-height: 12%;
   z-index: 2;
-  background: white; }
+  background: white;
+  overflow-x: hidden; }
 
 .content {
   padding: 1rem 0; }
