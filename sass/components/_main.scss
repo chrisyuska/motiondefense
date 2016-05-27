@@ -12,11 +12,15 @@
   background: white;
 }
 
+.content {
+  padding: 1rem 0;
+}
+
 /* This is the class used for the main content headers (<h2>) */
 .content-head {
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  margin: 1.5em 0 1em;
+  margin: 1em 0 1em;
 }
 
 /* This is a modifier class used when the content-head is inside a ribbon */
@@ -88,13 +92,15 @@
 
 .platform-icons {
   padding: 0.4em 0;
-  font-size: 5em;
+  font-size: 4.8em;
   color: white;
+  white-space: nowrap;
 }
 
 .featurette {
   .img-wrapper {
     position: relative;
+    height: 240px;
   }
 
   img {
@@ -120,6 +126,7 @@
 @media #{$medium-and-up} {
   .platform-icons {
     min-width: 1px;
+    font-size: 5em;
   }
 }
 
@@ -130,6 +137,6 @@
  */
 @media #{$large-and-up} {
   .platform-icons {
-    font-size: 6em;
+    font-size: 5.6em;
   }
 }

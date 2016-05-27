@@ -18,6 +18,10 @@
   text-align: center;
 }
 
+.n-m-b {
+  margin-bottom: 0 !important;
+}
+
 @media #{$medium-and-up} {
   .float-right-on-md {
     float: right;

@@ -14,7 +14,6 @@
     <link rel="shortcut icon" href="img/icon/favicon.ico">
     <meta id="theme-color" name="theme-color" content="#2d3e50">
     <link rel="stylesheet" href="dist/public.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <!--[if lte IE 8]>
       <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
     <![endif]-->
@@ -56,59 +55,78 @@
         </div>
       </div>
 
+      <noscript id="deferred-styles">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+      </noscript>
+      <script>
+        var loadDeferredStyles = function() {
+          var addStylesNode = document.getElementById("deferred-styles");
+          var replacement = document.createElement("div");
+          replacement.innerHTML = addStylesNode.textContent;
+          document.body.appendChild(replacement)
+          addStylesNode.parentElement.removeChild(addStylesNode);
+        };
+        var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+            webkitRequestAnimationFrame || msRequestAnimationFrame;
+        if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+        else window.addEventListener('load', loadDeferredStyles);
+      </script>
+
       <div class="content-wrapper" id="tour">
-        <div class="ribbon-cyan row">
+        <div class="ribbon-cyan row content">
           <div class="container">
-            <div class="col s12 content center-align-sm">
-              <h3 class="content-head center-align">Fully featured and customizable.</h3>
-              <div class="row">
-                <div class="col s12 m6 l3">
-                  <h4 class="content-subhead">
-                    <i class="fa fa-video-camera"></i>
-                    Mix and match
-                  </h4>
-                  <p>
-                    Most webcams, other USB cameras, and IP cameras are compatible, so go ahead and use them all.
-                  </p>
-                </div>
-                <div class="col s12 m6 l3">
-                  <h4 class="content-subhead">
-                    <i class="fa fa-inbox"></i>
-                    Stay in the loop
-                  </h4>
-                  <p>
-                    Receive alerts when your cameras detect movement via email, with SMS and webhook support coming soon.
-                  </p>
-                </div>
-                <div class="col s12 m6 l3">
-                  <h4 class="content-subhead">
-                    <i class="fa fa-globe"></i>
-                    Watch on the go
-                  </h4>
-                  <p>
-                    Securely view live feeds of your cameras from anywhere in the world on any mobile device or computer.
-                  </p>
-                </div>
-                <div class="col s12 m6 l3">
-                  <h4 class="content-subhead">
-                    <i class="fa fa-calendar-o"></i>
-                    Set it and forget it
-                  </h4>
-                  <p>
-                    Rest easy knowing that Motion Defense will continue to run on custom schedules while you're away.
-                  </p>
+            <div class="col s12">
+              <div class="center-align-sm">
+                <h3 class="content-head content-head-ribbon center-align">Fully featured and customizable.</h3>
+                <div class="row">
+                  <div class="col s12 m6 l3">
+                    <h4 class="content-subhead">
+                      <i class="fa fa-video-camera"></i>
+                      Mix and match
+                    </h4>
+                    <p>
+                      Most webcams, other USB cameras, and IP cameras are compatible, so go ahead and use them all.
+                    </p>
+                  </div>
+                  <div class="col s12 m6 l3">
+                    <h4 class="content-subhead">
+                      <i class="fa fa-inbox"></i>
+                      Stay in the loop
+                    </h4>
+                    <p>
+                      Receive alerts when your cameras detect movement via email, with SMS and webhook support coming soon.
+                    </p>
+                  </div>
+                  <div class="col s12 m6 l3">
+                    <h4 class="content-subhead">
+                      <i class="fa fa-globe"></i>
+                      Watch on the go
+                    </h4>
+                    <p>
+                      Securely view live feeds of your cameras from anywhere in the world on any mobile device or computer.
+                    </p>
+                  </div>
+                  <div class="col s12 m6 l3">
+                    <h4 class="content-subhead">
+                      <i class="fa fa-calendar-o"></i>
+                      Set it and forget it
+                    </h4>
+                    <p>
+                      Rest easy knowing that Motion Defense will continue to run on custom schedules while you're away.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="row container">
-          <div class="col s12 content featurette">
-            <div class="row l-box">
+        <div class="row container content">
+          <div class="col s12 featurette">
+            <div class="row content">
               <div class="col s12 m5 push-m7 center-align">
                 <div class="img-wrapper">
-                  <img src="img/promotional/dashboard-desktop-dell-ultrasharp-596x480.jpg" alt="Dashboard view">
+                  <img src="img/promotional/dashboard-desktop-dell-ultrasharp-298x240.jpg" alt="Dashboard view">
                 </div>
               </div>
               <div class="col s12 m7 pull-m5 center-align-sm">
@@ -119,10 +137,10 @@
               </div>
             </div>
 
-            <div class="row l-box">
+            <div class="row content">
               <div class="col s12 m5 center-align">
                 <div class="img-wrapper">
-                  <img src="img/promotional/remote-desktop-mobile-820x480.jpg" alt="Remote viewing">
+                  <img src="img/promotional/remote-desktop-mobile-410x240.jpg" alt="Remote viewing">
                 </div>
               </div>
               <div class="col s12 m7 center-align-sm">
@@ -133,10 +151,10 @@
               </div>
             </div>
 
-            <div class="row l-box">
+            <div class="row content n-m-b">
               <div class="col s12 m5 push-m7 center-align">
                 <div class="img-wrapper">
-                  <img src="img/promotional/notification-nexus-5x-238x480.jpg" alt="Mobile alert">
+                  <img src="img/promotional/notification-nexus-5x-119x240.jpg" alt="Mobile alert">
                 </div>
               </div>
               <div class="col s12 m7 pull-m5 center-align-sm">
@@ -149,17 +167,17 @@
           </div>
         </div>
 
-        <div class="ribbon-green row">
-          <div class="container">
+        <div class="ribbon-green content">
+          <div class="row container">
             <div class="col s12 m6 l5">
-              <div class="l-box border-bottom-sm center-align platform-icons">
+              <div class="border-bottom-sm center-align platform-icons">
                 <i class="fa fa-windows"></i>
                 <i class="fa fa-apple"></i>
                 <i class="fa fa-linux"></i>
               </div>
             </div>
             <div class="col s12 m6 l7">
-              <div class="center-align-sm l-box border-bottom-sm ribbon-content platform-content">
+              <div class="center-align-sm platform-content">
                 <h3 class="content-head content-head-ribbon">Available on all platforms.</h3>
 
                 <p>
@@ -170,7 +188,7 @@
           </div>
         </div>
 
-        <div class="content" id="register">
+        <div id="register" class="content">
           <div class="row container center-align">
             <div class="col s12">
               <h3 class="content-head">Get notified when it's released.</h3>
@@ -180,10 +198,10 @@
               </p>
             </div>
           </div>
-          <div class="row container">
-            <div class="l-box border-bottom-sm col s12 m5">
+          <div class="row container n-m-b">
+            <div class="col s12 m5">
               <!-- Begin MailChimp Signup Form -->
-              <div id="mc_embed_signup">
+              <div id="mc_embed_signup" class="content border-bottom-sm">
                 <form action="https://kicklet.us10.list-manage.com/subscribe/post?u=8fdcdf69bba7ccd3f4c7d1cf1&amp;id=4052ab1505" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
                   <div id="mc_embed_signup_scroll">
                     <div class="row">
@@ -214,16 +232,18 @@
               <!--End mc_embed_signup-->
             </div>
 
-            <div class="l-box border-bottom-sm col s12 m7 center-align-sm">
-              <h4>Contact Us</h4>
-              <p>
-                Although we're usually coding away, we'd love to hear from you.  Have questions, concerns, or just want to say hi?  <a href="mailto:support@kicklet.com?subject=Motion%20Defense" target="_blank">Send us an email!</a>
-              </p>
+            <div class="col s12 m7">
+              <div class="content center-align-sm">
+                <h4>Contact Us</h4>
+                <p>
+                  Although we're usually coding away, we'd love to hear from you.  Have questions, concerns, or just want to say hi?  <a href="mailto:support@kicklet.com?subject=Motion%20Defense" target="_blank">Send us an email!</a>
+                </p>
 
-              <h4>More Information</h4>
-              <p>
-                A more complete site is in the works, but we're a small dev team and we wanted to prioritize getting the application to you first.  If you have any questions at all, don't hesitate to <a href="mailto:support@kicklet.com?subject=Motion%20Defense" target="_blank">contact us</a>.
-              </p>
+                <h4>More Information</h4>
+                <p>
+                  A more complete site is in the works, but we're a small dev team and we wanted to prioritize getting the application to you first.  If you have any questions at all, don't hesitate to <a href="mailto:support@kicklet.com?subject=Motion%20Defense" target="_blank">contact us</a>.
+                </p>
+              </div>
             </div>
           </div>
         </div>

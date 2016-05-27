@@ -27,8 +27,15 @@ $(function() {
     resizeSplash();
     resizeFeaturette();
   });
-  resizePlatformIcons();
+
+  $(".featurette img").load(function() {
+    resizeFeaturette();
+  });
+
   resizeFeaturette();
+  resizeFeaturette();
+
+  resizePlatformIcons();
 });
 
 function resizeSplash() {
@@ -41,11 +48,15 @@ function resizeSplash() {
 
 function resizeFeaturette() {
   if ($(".platform-icons").css("min-width") == "1px") {
+    var heights = $(".featurette .content-head").parent().map(function() { return $(this).outerHeight(); });
+    var height = Math.max(...heights);
     $(".featurette .row").each(function() {
-      $(this).find("img").parent().outerHeight($(this).find(".content-head").parent().outerHeight());
+      $(this).find("img").css("max-height", height + "px");
+      $(this).find("img").parent().outerHeight(height);
     });
   } else {
     $(".featurette .row").each(function() {
+      $(this).find("img").css("max-height", "");
       $(this).find("img").parent().outerHeight($(this).find("img").outerHeight());
     });
   }
@@ -53,13 +64,16 @@ function resizeFeaturette() {
 
 function resizePlatformIcons() {
   if ($(".platform-icons").css("min-width") == "1px") {
-    var contentHeight = $(".platform-content").outerHeight();
+    // get content's height minux margin
+    var contentHeight = $(".platform-content").parent().outerHeight() - 20;
     $(".platform-icons").css("padding", 0)
       .css("line-height", contentHeight + "px")
+      .css("margin-top", "20px")
       .outerHeight(contentHeight);
   } else {
     $(".platform-icons").css("padding", "")
       .css("line-height", "")
+      .css("margin-top", "")
       .outerHeight("");
   }
 }

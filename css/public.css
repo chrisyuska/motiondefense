@@ -11320,9 +11320,6 @@ main {
   main.container {
     overflow-x: visible; }
 
-.l-box {
-  padding: 1rem; }
-
 .waves-effect.waves-blue .waves-ripple {
   background-color: rgba(18, 24, 31, 0.65); }
 
@@ -11424,11 +11421,14 @@ canvas#shade {
   z-index: 2;
   background: white; }
 
+.content {
+  padding: 1rem 0; }
+
 /* This is the class used for the main content headers (<h2>) */
 .content-head {
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  margin: 1.5em 0 1em; }
+  margin: 1em 0 1em; }
 
 /* This is a modifier class used when the content-head is inside a ribbon */
 .content-head-ribbon {
@@ -11483,11 +11483,13 @@ canvas#shade {
 
 .platform-icons {
   padding: 0.4em 0;
-  font-size: 5em;
-  color: white; }
+  font-size: 4.8em;
+  color: white;
+  white-space: nowrap; }
 
 .featurette .img-wrapper {
-  position: relative; }
+  position: relative;
+  height: 240px; }
 
 .featurette img {
   max-width: 100%;
@@ -11508,7 +11510,8 @@ canvas#shade {
  */
 @media only screen and (min-width: 601px) {
   .platform-icons {
-    min-width: 1px; } }
+    min-width: 1px;
+    font-size: 5em; } }
 
 /*
  * -- DESKTOP (AND UP) MEDIA QUERIES --
@@ -11517,7 +11520,7 @@ canvas#shade {
  */
 @media only screen and (min-width: 993px) {
   .platform-icons {
-    font-size: 6em; } }
+    font-size: 5.6em; } }
 
 .hidden {
   display: none !important; }
@@ -11533,6 +11536,9 @@ canvas#shade {
 
 .center-align-sm {
   text-align: center; }
+
+.n-m-b {
+  margin-bottom: 0 !important; }
 
 @media only screen and (min-width: 601px) {
   .float-right-on-md {
@@ -11675,7 +11681,8 @@ footer.page-footer {
   background-color: #2D3E50;
   color: #bdbdbd;
   text-align: center;
-  padding-bottom: 20px; }
+  padding-bottom: 20px;
+  margin-top: 0; }
   footer.page-footer a {
     color: #9e9e9e;
     color: rgba(255, 255, 255, 0.5); }
