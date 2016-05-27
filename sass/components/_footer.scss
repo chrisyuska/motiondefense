@@ -10,11 +10,22 @@ main {
 
 footer.page-footer {
   background-color: $footer-bg-color;
-  color: color("grey", "base");
+  color: color("grey", "lighten-1");
   text-align: center;
+  padding-bottom: 20px;
 
   a {
-    color: color("grey", "lighten-4");
+    color: color("grey", "base");
+    color: rgba(255, 255, 255, 0.5);
+
+    &:hover, &:active {
+      color: color("grey", "lighten-5");
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+
+  .row:last-child {
+    margin-bottom: 0;
   }
 }
 

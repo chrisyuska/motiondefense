@@ -16,7 +16,7 @@
 .content-head {
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  margin: 2em 0 1em;
+  margin: 1.5em 0 1em;
 }
 
 /* This is a modifier class used when the content-head is inside a ribbon */
@@ -27,7 +27,7 @@
 
 /* This is the class used for the content sub-headers (<h3>) */
 .content-subhead {
-  color: #124C78;
+  color: color("blue", "darken-4");
 }
 
 .content-subhead i {
@@ -35,9 +35,51 @@
 }
 
 /* This is the class used for the dark-background areas. */
-.ribbon {
-  background: #2d3e50;
-  color: #aaa;
+.ribbon, .ribbon-blue {
+  background: color("blue", "base");
+  color: color("grey", "lighten-1");
+}
+
+.ribbon-blue-grey {
+  background: color("blue-grey", "base");
+  color: color("grey", "lighten-1");
+}
+
+.ribbon-green {
+  background: color("green", "base");
+  color: color("grey", "lighten-5");
+}
+
+.ribbon-orange {
+  background: color("orange", "base");
+  color: color("grey", "lighten-5");
+}
+
+.ribbon-purple {
+  background: color("purple", "base");
+  color: color("grey", "lighten-1");
+}
+
+.ribbon-light-blue {
+  background: color("light-blue", "base");
+  color: color("grey", "lighten-5");
+}
+
+.ribbon-cyan {
+  background: color("cyan", "base");
+  color: color("grey", "lighten-5");
+}
+
+.ribbon, .ribbon-blue, .ribbon-blue-grey, .ribbon-green, .ribbon-orange, .ribbon-purple, .ribbon-light-blue, .ribbon-cyan {
+  a {
+    color: color("grey", "base");
+    color: rgba(255, 255, 255, 0.5);
+
+    &:hover, &:active {
+      color: color("grey", "lighten-5");
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
 }
 
 .ribbon-content {
@@ -48,6 +90,25 @@
   padding: 0.4em 0;
   font-size: 5em;
   color: white;
+}
+
+.featurette {
+  .img-wrapper {
+    position: relative;
+  }
+
+  img {
+    max-width: 100%;
+    max-height: 240px;
+    width: auto;
+    height: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  }
 }
 
 

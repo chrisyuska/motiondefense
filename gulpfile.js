@@ -34,4 +34,4 @@ gulp.task('minify-css', function() {
     .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('default', ['sass','watch', 'minify-css']);
+gulp.task('default', ['sass','watch']);

@@ -51,6 +51,22 @@ canvas#shade {
 
 
 /*
+ * -- TINY SCREENS MEDIA QUERIES --
+ * On tiny/old mobile device screens, we need to handle some special usability
+ * cases.
+ */
+@media (max-width: 360px) {
+  .splash {
+    top: 30px;
+  }
+
+  .splash-head {
+    font-size: 1.5em;
+    font-size: 3rem;
+  }
+}
+
+/*
  * -- TABLET (AND UP) MEDIA QUERIES --
  * On tablets and other medium-sized devices, we want to customize some
  * of the mobile styles.

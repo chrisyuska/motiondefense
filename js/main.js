@@ -8,7 +8,7 @@ $(function() {
       target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
       if (target.length) {
         $('html, body').animate({
-          scrollTop: (target.offset().top - $(".home-menu").outerHeight())
+          scrollTop: (target.offset().top - $(".navbar-fixed").outerHeight())
         }, 1000);
         return false;
       }
@@ -25,8 +25,10 @@ $(function() {
   $(window).resize(function() {
     resizePlatformIcons();
     resizeSplash();
+    resizeFeaturette();
   });
   resizePlatformIcons();
+  resizeFeaturette();
 });
 
 function resizeSplash() {
@@ -35,6 +37,18 @@ function resizeSplash() {
 
   // make sure splash animator updates measurements correctly
   if (splashAnimator) splashAnimator.updateMeasurements();
+}
+
+function resizeFeaturette() {
+  if ($(".platform-icons").css("min-width") == "1px") {
+    $(".featurette .row").each(function() {
+      $(this).find("img").parent().outerHeight($(this).find(".content-head").parent().outerHeight());
+    });
+  } else {
+    $(".featurette .row").each(function() {
+      $(this).find("img").parent().outerHeight($(this).find("img").outerHeight());
+    });
+  }
 }
 
 function resizePlatformIcons() {
