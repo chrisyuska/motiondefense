@@ -43,7 +43,12 @@ function resizeSplash() {
   $(".content-wrapper").css("top", $(".content-wrapper").offset().top);
 
   // make sure splash animator updates measurements correctly
-  if (splashAnimator) splashAnimator.updateMeasurements();
+  if (splashAnimator) {
+    splashAnimator.updateMeasurements();
+
+    // must draw immediately aftr updating measurements to prevent jank
+    splashAnimator.drawRec();
+  }
 }
 
 function resizeFeaturette() {
