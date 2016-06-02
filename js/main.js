@@ -91,7 +91,7 @@ function SplashAnimator(canvas) {
 
   this.updateMeasurements();
 
-  this.fps = 60;
+  this.fps = 10;
   this.interval = null;
   this.recTimeout = null;
   this.step = 0.002;
